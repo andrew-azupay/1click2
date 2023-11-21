@@ -131,7 +131,7 @@ export default function SignInPage() {
     }
   };
 
-  function getCookie(cname) {
+  function getCookie(cname: string) {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
     let ca = decodedCookie.split(';');

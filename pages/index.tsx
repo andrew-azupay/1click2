@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useAuthsignal } from "../utils/authsignal";
 // import {cookies} from "next/headers";
 
-function getCookie(cname) {
+function getCookie(cname: string) {
   let name = cname + "=";
   let decodedCookie = decodeURIComponent(document.cookie);
   let ca = decodedCookie.split(';');
