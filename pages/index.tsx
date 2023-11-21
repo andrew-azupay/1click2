@@ -71,7 +71,7 @@ export default function Index() {
       <h3>Welcome, {userId}</h3>
       <p>Your PayTO Agreement is Authorised.</p>
 
-      <button onclick={enrollPasskey}>Make Payment</button>
+      <button onClick={enrollPasskey}>Make Payment</button>
     </div>
   );
 
