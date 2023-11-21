@@ -53,6 +53,7 @@ export default function SignInPage() {
 
     if (status === "unauthenticated") {
       handlePasskeySignIn();
+
     }
   }, [status, authsignal.passkey]);
 
