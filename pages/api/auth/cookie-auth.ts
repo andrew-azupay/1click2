@@ -18,7 +18,7 @@ export default async function enrollPasskey(req: NextApiRequest, res: NextApiRes
 
   const { token } = await authsignal.track({
     userId,
-    action: "enroll-passkey",
+    action: "cookie-auth",
   });
   console.log("token", token);
   res.status(200).json(token);
