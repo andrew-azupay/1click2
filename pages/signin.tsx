@@ -6,7 +6,7 @@ import { useAuthsignal } from "../utils/authsignal";
 
 export default function SignInPage() {
   let status = "unauthenticated";
-  //const router = useRouter()
+  const router = useRouter()
 
   const authsignal = useAuthsignal();
 
@@ -122,13 +122,18 @@ export default function SignInPage() {
       return;
     }
     alert("PayID is registered. Click ok to Authorise PayTo Agreement");
-    document.cookie = "1clickid="+username;
+    document.cookie = "1clickid="+username + "; expires = Fri, 01 Jan 2100 00:00:00 GMT";
     const passkeyStatus = await enrollPasskey();
     if (passkeyStatus) {
       alert("Payment Authorised and Initiated");
     } else {
       alert("Payment Failed");
     }
+  };
+
+  const removeCookie = async () => {
+    document.cookie = "1clickid= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+    router.replace("/signin");
   };
 
   function getCookie(cname: string) {
@@ -172,6 +177,10 @@ export default function SignInPage() {
               readOnly={true}
           />
           <button id="cookieButton" onClick={authCookieUser}>Make Payment via Cookie</button>
+        </div>
+        <div className="spacer" />
+        <div>
+          <button id="removeCookieButton" onClick={removeCookie}>Remove Cookie</button>
         </div>
       </div>
 
